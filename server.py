@@ -5,8 +5,9 @@ from pathlib import Path
 
 mcp = FastMCP("Sapient Contract PDF POC - Kabilan")
 
-output_dir = Path(__file__).parent / "output"
-output_dir.mkdir(exist_ok=True)
+#output_dir = Path(__file__).parent / "output"
+#output_dir.mkdir(exist_ok=True)
+output_dir = "tmp"
 
 @mcp.tool()
 async def hello_contract(template_name: str = "msa") -> str:
