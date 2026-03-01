@@ -99,6 +99,9 @@ async def list_templates() -> str:
     """List available contract templates."""
     return json.dumps({"templates": ["msa", "sow", "nda"], "status": "POC ready"})
 
-
 if __name__ == "__main__":
-    mcp.run(transport="stdio")
+    import sys
+    if "--stdio" in sys.argv:
+        mcp.run(transport="stdio")
+    else:
+        mcp.run(transport="streamable-http")
