@@ -5,7 +5,7 @@ Run:  mcp dev server.py
 All tools use flat arguments (no Pydantic wrapper) for full
 MCP Inspector + Slingshot compatibility.
 """
-import asyncio
+import uvicorn
 from mcp.server.fastmcp import FastMCP
 from typing import Literal
 import re, random, datetime
@@ -403,13 +403,10 @@ def orchestrate_generate_verification_summary(
         "generated_at":         datetime.datetime.utcnow().isoformat() + "Z",
     }
 
-async def main():
-    """Main entrypoint - async safe for Horizon."""
-    await mcp.run_async(transport="streamable-http", port=8000)
-
 if __name__ == "__main__":
     import sys
     if "--stdio" in sys.argv:
         mcp.run(transport="stdio")
     else:
-        asyncio.run(main())  # Safe wrapper
+        # Horizon-safe: direct HTTP transport (no asyncio wrapper)
+        mcp.run(transport="streamable-http", host="0.0.0.0", port=8000)
