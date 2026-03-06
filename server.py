@@ -404,6 +404,7 @@ def orchestrate_generate_verification_summary(
 
 if __name__ == "__main__":
     import sys
+
     if "--stdio" in sys.argv:
         mcp.run(transport="stdio")
     else:

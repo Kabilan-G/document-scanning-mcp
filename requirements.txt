@@ -1,5 +1,6 @@
 # Core MCP frameworks
 mcp[cli]>=1.0.0
+fastmcp
 
 # LLM providers — both listed, only the one you use needs a key
 #anthropic>=0.40.0
