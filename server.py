@@ -403,6 +403,9 @@ def orchestrate_generate_verification_summary(
         "generated_at":         datetime.datetime.utcnow().isoformat() + "Z",
     }
 
-
 if __name__ == "__main__":
-    mcp.run()
+    import sys
+    if "--stdio" in sys.argv:
+        mcp.run(transport="stdio")
+    else:
+        mcp.run(transport="streamable-http")    
