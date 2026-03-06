@@ -1,4 +1,4 @@
-# Core MCP framework
+# Core MCP frameworks
 mcp[cli]>=1.0.0
 
 # LLM providers — both listed, only the one you use needs a key
