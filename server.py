@@ -5,7 +5,8 @@ Run:  mcp dev server.py
 All tools use flat arguments (no Pydantic wrapper) for full
 MCP Inspector + Slingshot compatibility.
 """
-from mcp.server.fastmcp import FastMCP
+#from mcp.server.fastmcp import FastMCP
+from fastmcp import FastMCP
 from typing import Literal
 import re, random, datetime
 
